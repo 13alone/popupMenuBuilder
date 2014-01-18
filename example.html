@@ -1,0 +1,65 @@
+<!DOCTYPE HTML">
+
+<html>
+<head>
+  <title>jQuery</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="http://ux.thethingsido.com/js/jQuery/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <script src="http://ux.thethingsido.com/js/jQuery/jquery-ui-1.10.1.custom.js" type="text/javascript"></script>
+  <script src="http://ux.thethingsido.com/js/plugins/jquery.popupMenuBuilder.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="http://ux.thethingsido.com/css/ui/jquery-ui-1.10.3.custom.min.css">
+  <script type="text/javascript">
+    jQuery(document).ready(
+      function() {
+        jQuery("table tbody tr").popupMenu(
+          {
+            menuName : "sqlBackupMenu", 
+            menuItems : [
+              { 
+                "ref": "editFile", 
+                "uiIcon" : "refresh", 
+                "text" : "Edit this File", 
+                "click" : function () { 
+                  alert( 
+					jQuery(this).parent().attr("filePath") 
+                  );
+                } 
+              },
+              { 
+                "ref": "deleteFile", 
+                "uiIcon" : "trash", 
+                "text" : "Delete this File", 
+                "click" : function () { 
+                  alert( 
+					jQuery(this).parent().attr("filePath") 
+                  );
+                }
+              }
+            ]
+          }
+        );
+      }
+    );
+  </script>
+</head>
+<body>
+  <table width="100%" border="1" cellspacing="0" cellpadding="3" align="center">
+    <thead>
+      <tr>
+        <th align="left">File</th>
+        <th width="200">Date Last Modified</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr filePath="D:\fake.txt">
+        <td>fake.bak</td>
+        <td align="center">05/02/2013 09:34:32 AM</td>
+      </tr>
+      <tr filePath="D:\fake.html">
+        <td>fake.html</td>
+        <td align="center">05/02/2013 09:34:32 AM</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
